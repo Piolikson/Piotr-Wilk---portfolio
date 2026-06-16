@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piotr Wilk - Montaż Video Portfolio</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d0d0d;
+    color: #e8e8e8;
+    line-height: 1.6;
+  }
+
+  a { color: #7eb8f7; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* HERO */
+  .hero {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4rem 2rem 3rem;
+    border-bottom: 1px solid #222;
+  }
+
+  .avatar {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: #1a3a5c;
+    color: #7eb8f7;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero p {
+    font-size: 15px;
+    color: #aaa;
+    max-width: 520px;
+    margin-bottom: 1.25rem;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 1.25rem;
+  }
+
+  .tag {
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid #2e2e2e;
+    color: #888;
+    background: #161616;
+  }
+
+  .contact {
+    font-size: 13px;
+    color: #666;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  /* SECTIONS */
+  .section {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem;
+  }
+
+  .section + .section {
+    border-top: 1px solid #1e1e1e;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+
+  /* LONG VIDEOS */
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+
+  .video-card {
+    border: 1px solid #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #111;
+  }
+
+  .video-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+  }
+
+  .video-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+
+  .video-meta {
+    padding: 0.75rem 1rem;
+  }
+
+  .video-meta strong {
+    font-size: 13px;
+    font-weight: 500;
+    color: #ddd;
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  .video-meta p {
+    font-size: 12px;
+    color: #666;
+  }
+
+  /* SHORTS */
+  .shorts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+    gap: 16px;
+  }
+
+  .short-card {
+    border: 1px solid #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #111;
+  }
+
+  .short-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 177.78%;
+  }
+
+  .short-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+
+  .short-meta {
+    padding: 0.65rem 0.85rem;
+  }
+
+  .short-meta strong {
+    font-size: 12px;
+    font-weight: 500;
+    color: #ddd;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .short-meta p {
+    font-size: 11px;
+    color: #555;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+  }
+
+  .skill-card {
+    background: #111;
+    border: 1px solid #1e1e1e;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+
+  .skill-icon {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .skill-card strong {
+    font-size: 13px;
+    font-weight: 500;
+    color: #ddd;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .skill-card span {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.4;
+  }
+
+  /* FOOTER */
+  .footer {
+    border-top: 1px solid #1a1a1a;
+    padding: 2rem;
+    text-align: center;
+    font-size: 12px;
+    color: #444;
+  }
+
+  @media (max-width: 480px) {
+    .hero { padding: 2.5rem 1.25rem 2rem; }
+    .section { padding: 2rem 1.25rem; }
+    .shorts-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="avatar">PW</div>
+  <h1>Piotr Wilk - video editor & content creator</h1>
+  <p>Montuję gaming content od podstaw - długie formy YouTube i krótkie pionowe formaty (Shorts / TikTok). Specjalizuję się w dynamicznym montażu, który utrzymuje uwagę widza od pierwszej sekundy. Wszystko co widzisz poniżej robię sam. Zapraszam do kontaktu.</p>
+  <div class="tags">
+    <span class="tag">gaming content</span>
+    <span class="tag">długie formy YouTube</span>
+    <span class="tag">Shorts &amp; TikTok</span>
+    <span class="tag">dynamiczny montaż</span>
+    <span class="tag">retencja widza</span>
+    <span class="tag">EA FC / FIFA</span>
+  </div>
+  <div class="contact">
+    <a href="mailto:piotrwilk2004@gmail.com">✉ piotrwilk2004@gmail.com</a>
+    <a href="https://www.youtube.com/@Piolikson" target="_blank">▶ @Piolikson na YouTube</a>
+  </div>
+</div>
+
+<div class="section">
+  <p class="section-label">Długie formy — YouTube</p>
+  <div class="video-grid">
+
+    <div class="video-card">
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/q3NejrfuWpc" allowfullscreen loading="lazy" title="Film 1"></iframe>
+      </div>
+      <div class="video-meta">
+        <strong>EA FC — gameplay #1</strong>
+        <!-- ZMIEŃ: wpisz własny tytuł i opis -->
+        <p>Dynamiczny montaż rozgrywki z komentarzem.</p>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/ywSe8b88K5k" allowfullscreen loading="lazy" title="Film 2"></iframe>
+      </div>
+      <div class="video-meta">
+        <strong>EA FC — gameplay #2</strong>
+        <!-- ZMIEŃ: wpisz własny tytuł i opis -->
+        <p>Dynamiczny montaż rozgrywki z komentarzem.</p>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/DprXWEB90jc" allowfullscreen loading="lazy" title="Film 3"></iframe>
+      </div>
+      <div class="video-meta">
+        <strong>EA FC — gameplay #3</strong>
+        <!-- ZMIEŃ: wpisz własny tytuł i opis -->
+        <p>Dynamiczny montaż rozgrywki z komentarzem.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section">
+  <p class="section-label">Shorts &amp; TikTok</p>
+  <div class="shorts-grid">
+
+    <div class="short-card">
+      <div class="short-wrap">
+        <iframe src="https://www.youtube.com/embed/r3UxLHpeg0E" allowfullscreen loading="lazy" title="Short 1"></iframe>
+      </div>
+      <div class="short-meta">
+        <strong>Short #1</strong>
+        <!-- ZMIEŃ: wpisz własny opis -->
+        <p>Pionowy format, szybkie cięcia.</p>
+      </div>
+    </div>
+
+    <div class="short-card">
+      <div class="short-wrap">
+        <iframe src="https://www.youtube.com/embed/5wFfRrNXCUQ" allowfullscreen loading="lazy" title="Short 2"></iframe>
+      </div>
+      <div class="short-meta">
+        <strong>Short #2</strong>
+        <!-- ZMIEŃ: wpisz własny opis -->
+        <p>Pionowy format, szybkie cięcia.</p>
+      </div>
+    </div>
+
+    <div class="short-card">
+      <div class="short-wrap">
+        <iframe src="https://www.youtube.com/embed/HR_S1YYr00Q" allowfullscreen loading="lazy" title="Short 3"></iframe>
+      </div>
+      <div class="short-meta">
+        <strong>Short #3</strong>
+        <!-- ZMIEŃ: wpisz własny opis -->
+        <p>Pionowy format, szybkie cięcia.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section">
+  <p class="section-label">Co oferuję</p>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">▶</div>
+      <strong>Długie formy YouTube</strong>
+      <span>Filmy 5–30 min angażujące z grafikami, podkładem muzycznym</span>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📱</div>
+      <strong>Shorts &amp; TikTok</strong>
+      <span>Pionowy format 15–60 sek, szybkie tempo</span>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">⚡</div>
+      <strong>Dynamika i retencja</strong>
+      <span>Montaż, który trzyma widza od pierwszej do ostatniej sekundy</span>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🎮</div>
+      <strong>Gaming content</strong>
+      <span>Specjalizacja w EA FC, otwarty na każdy inny kanał</span>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  © 2026 Piotr Wilk &nbsp;·&nbsp;
+  <a href="mailto:piotrwilk2004@gmail.com">piotrwilk2004@gmail.com</a>
+</div>
+
+</body>
+</html>
